@@ -1,0 +1,20 @@
+.mynavbar .navbar {padding: 5px 0;}
+.mynavbar .navbar-brand img {width: 60px; height: auto;} 
+
+.head-tfn {margin-left: 2%;}
+.head-tfn .call-icon {width: 36px; height: auto; display: inline-block; margin-right: 5px; position: relative; top: 2px;}
+/* .head-tfn .call-icon:before {content: ''; width: 8px; height: 8px; position: absolute; background: #11ad68; border-radius: 100%; bottom: 4px; left: 2px;} */
+.head-tfn .call-icon img {width: 100%; height: auto;}
+.head-tfn a {font-size: 18px; color: #251a14; text-decoration: none; font-weight: 600; display: flex; align-items: center;}
+.callustext {font-size: 18px; letter-spacing: .5px; color: #251a14;}
+.callustext .head-callus {display: block; font-size: 13px; color: #251a14; margin-bottom: -3px; text-align: center;}
+
+.mynavbar .navbar-expand-lg .navbar-collapse {justify-content: center;}
+.mynavbar ul.navbar-nav li.nav-item {margin: 0 2px;}
+.mynavbar ul.navbar-nav a.nav-link {color: #000000; font-size: 16px; padding: 12px 30px; text-transform: capitalize; font-weight: 500; border-radius: 8px;}
+.mynavbar ul.navbar-nav a.nav-link:hover{color: #000;}
+.mynavbar ul.navbar-nav a.nav-link.active {color: #000; font-weight: 600;}
+.mynavbar ul.navbar-nav a.nav-link.active:hover {color: #000;}
+.mynavbar .navbar-toggler {background: #251a14; padding: 4px 10px;}
+.mynavbar .navbar-toggler span {background-image: none; background-color: #fff; width: 25px; height: 2px; margin: 6px 0; display: block;}
+.mynavbar .navbar-brand {margin-right: 0;}
