@@ -15,10 +15,10 @@ constructor(){
 
 
   async componentDidMount(){
-    let apiurl = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=8c4228a643924643975258edd5ec59b2'
+    let apiurl = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8c4228a643924643975258edd5ec59b2'
     let data = await fetch(apiurl);
     let parsedData = await data.json() 
-   // console.log(parsedData)
+    console.log(parsedData)
     this.setState({articles: parsedData.articles})
   }
 
@@ -33,11 +33,11 @@ constructor(){
                            this.state.articles.map((element)=>{
                              //console.log(element)
            
-                             return <div className='col-md-4' key={element.url}>
+                             return <div className='col-md-4 mb-3' key={element.url}>
                                 <NewsItem 
-                                 title={element.title.slice(0,120)} 
+                                 title={element.title} 
                                  description={element.description} 
-                                 imgurl={element.urlToImage} 
+                                 imgUrl={element.urlToImage} 
                                  newsUrl={element.url}
                                 />
                            </div>
