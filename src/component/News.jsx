@@ -7,7 +7,8 @@ constructor(){
     super()
     this.state = {
       articles : [],
-      loading: false
+      loading: false,
+      page:1
     }
 
     //console.log(this.state.articles)
@@ -22,32 +23,64 @@ constructor(){
     this.setState({articles: parsedData.articles})
   }
 
+
+  hendlePrevClick = async () =>{
+    //console.log('prev')
+    let apiurl = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8c4228a643924643975258edd5ec59b2&page=${this.state.page - 1}`
+    let data = await fetch(apiurl);
+    let parsedData = await data.json()
+    console.log(parsedData)
+    this.setState({
+      page : this.state.page - 1,
+      articles:parsedData.articles
+    })
+  }
+
+
+
+  hendleNextClick = async () =>{
+    //console.log('next')
+    let apiurl = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8c4228a643924643975258edd5ec59b2&page=${this.state.page + 1}`;
+    let data = await fetch(apiurl);
+    let parsedData = await data.json();
+    console.log(parsedData);
+    this.setState({
+      page: this.state.page + 1,
+      articles: parsedData.articles
+    })
+
+  }
+
+
   render() {
     return (
       <div>
            <div className='container mt-4'>
-                       <p>Top News</p>
+                <p>Top News</p>
            
-                       <div className='row'>
-                         {
-                           this.state.articles.map((element)=>{
-                             //console.log(element)
+                  <div className='row'>
+                    {
+                      this.state.articles.map((element)=>{
+                        //console.log(element)
+      
+                        return <div className='col-md-4 mb-3' key={element.url}>
+                          <NewsItem 
+                            title={element.title} 
+                            description={element.description} 
+                            imgUrl={element.urlToImage} 
+                            newsUrl={element.url}
+                          />
+                      </div>
+                      })
+                    }
+                  </div>
+      
+                  <div className='my-4 d-flex justify-content-between'>
+                      <button disabled={this.state.page<=1} className='btn btn-dark' onClick={this.hendlePrevClick}>Previous</button>
+                      <button className='btn btn-dark' onClick={this.hendleNextClick}>Next</button>
+                  </div>
            
-                             return <div className='col-md-4 mb-3' key={element.url}>
-                                <NewsItem 
-                                 title={element.title} 
-                                 description={element.description} 
-                                 imgUrl={element.urlToImage} 
-                                 newsUrl={element.url}
-                                />
-                           </div>
-                           })
-                         }
-                       </div>
-           
-                          
-           
-                   </div>
+            </div>
 
            
       </div>
