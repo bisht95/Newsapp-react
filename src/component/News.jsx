@@ -16,17 +16,20 @@ constructor(){
 
 
   async componentDidMount(){
-    let apiurl = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8c4228a643924643975258edd5ec59b2'
+    let apiurl = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8c4228a643924643975258edd5ec59b2&page=1&pageSize=16'
     let data = await fetch(apiurl);
     let parsedData = await data.json() 
     console.log(parsedData)
-    this.setState({articles: parsedData.articles})
+    this.setState({
+      articles: parsedData.articles,
+      totalResults:parsedData.totalResults
+    })
   }
 
 
   hendlePrevClick = async () =>{
     //console.log('prev')
-    let apiurl = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8c4228a643924643975258edd5ec59b2&page=${this.state.page - 1}`
+    let apiurl = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8c4228a643924643975258edd5ec59b2&page=${this.state.page - 1}&pageSize:16`
     let data = await fetch(apiurl);
     let parsedData = await data.json()
     console.log(parsedData)
@@ -40,14 +43,21 @@ constructor(){
 
   hendleNextClick = async () =>{
     //console.log('next')
-    let apiurl = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8c4228a643924643975258edd5ec59b2&page=${this.state.page + 1}`;
-    let data = await fetch(apiurl);
-    let parsedData = await data.json();
-    console.log(parsedData);
-    this.setState({
-      page: this.state.page + 1,
-      articles: parsedData.articles
-    })
+
+    if(this.state.page +1 > Math.ceil(this.state.totalResults/16)){
+      //console.log('next')
+    }
+
+    else{
+        let apiurl = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8c4228a643924643975258edd5ec59b2&page=${this.state.page + 1}&pageSize=16`;
+        let data = await fetch(apiurl);
+        let parsedData = await data.json();
+        console.log(parsedData);
+        this.setState({
+          page: this.state.page + 1,
+          articles: parsedData.articles
+        })
+    }
 
   }
 
