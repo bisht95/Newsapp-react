@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import NewsItem from './NewsItem'
+import Spinner from './Spinner'
 
 export class News extends Component {
 
@@ -16,26 +17,32 @@ constructor(){
 
 
   async componentDidMount(){
-    let apiurl = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8c4228a643924643975258edd5ec59b2&page=1&pageSize=16'
+    let apiurl = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8c4228a643924643975258edd5ec59b2&page=1&pageSize=${this.props.pagesize}`
+
+    this.setState({loading:true})
+
     let data = await fetch(apiurl);
     let parsedData = await data.json() 
     console.log(parsedData)
     this.setState({
       articles: parsedData.articles,
-      totalResults:parsedData.totalResults
+      totalResults:parsedData.totalResults,
+      loading: false
     })
   }
 
 
   hendlePrevClick = async () =>{
     //console.log('prev')
-    let apiurl = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8c4228a643924643975258edd5ec59b2&page=${this.state.page - 1}&pageSize:16`
+    let apiurl = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8c4228a643924643975258edd5ec59b2&page=${this.state.page - 1}&pageSize=${this.props.pagesize}`
+    this.setState({loading:true})
     let data = await fetch(apiurl);
     let parsedData = await data.json()
     console.log(parsedData)
     this.setState({
       page : this.state.page - 1,
-      articles:parsedData.articles
+      articles:parsedData.articles,
+      loading:false
     })
   }
 
@@ -43,19 +50,20 @@ constructor(){
 
   hendleNextClick = async () =>{
     //console.log('next')
-
-    if(this.state.page +1 > Math.ceil(this.state.totalResults/16)){
+    if(this.state.page +1 > Math.ceil(this.state.totalResults/this.props.pagesize)){
       //console.log('next')
     }
 
     else{
-        let apiurl = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8c4228a643924643975258edd5ec59b2&page=${this.state.page + 1}&pageSize=16`;
+        let apiurl = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8c4228a643924643975258edd5ec59b2&page=${this.state.page + 1}&pageSize=${this.props.pagesize}`;
+        this.setState({loading:true})
         let data = await fetch(apiurl);
         let parsedData = await data.json();
         console.log(parsedData);
         this.setState({
           page: this.state.page + 1,
-          articles: parsedData.articles
+          articles: parsedData.articles,
+          loading:false
         })
     }
 
@@ -67,10 +75,10 @@ constructor(){
       <div>
            <div className='container mt-4'>
                 <p>Top News</p>
-           
+                  {this.state.loading && <Spinner />}
                   <div className='row'>
                     {
-                      this.state.articles.map((element)=>{
+                      !this.state.loading && this.state.articles.map((element)=>{
                         //console.log(element)
       
                         return <div className='col-md-4 mb-3' key={element.url}>
@@ -87,7 +95,7 @@ constructor(){
       
                   <div className='my-4 d-flex justify-content-between'>
                       <button disabled={this.state.page<=1} className='btn btn-dark' onClick={this.hendlePrevClick}>Previous</button>
-                      <button className='btn btn-dark' onClick={this.hendleNextClick}>Next</button>
+                      <button disabled={this.state.page +1 > Math.ceil(this.state.totalResults/this.props.pagesize)} className='btn btn-dark' onClick={this.hendleNextClick}>Next</button>
                   </div>
            
             </div>

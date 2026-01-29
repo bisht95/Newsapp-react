@@ -9,7 +9,7 @@ function App() {
   return (
     <>
         <Navbar/>
-        <News />
+        <News pagesize={10} />
     </>
   )
 }
