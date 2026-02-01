@@ -5,7 +5,7 @@ export class Spinner extends Component {
     return (
       <div>
             <div className='text-center my-5'>
-                <div class="spinner-border"></div>
+                <div className="spinner-border"></div>
             </div>
       </div>
     )

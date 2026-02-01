@@ -11,8 +11,8 @@
 
 .mynavbar .navbar-expand-lg .navbar-collapse {justify-content: center;}
 .mynavbar ul.navbar-nav li.nav-item {margin: 0 2px;}
-.mynavbar ul.navbar-nav a.nav-link {color: #000000; font-size: 16px; padding: 12px 30px; text-transform: capitalize; font-weight: 500; border-radius: 8px;}
-.mynavbar ul.navbar-nav a.nav-link:hover{color: #000;}
+.mynavbar ul.navbar-nav a.nav-link {color: #000000; font-size: 16px; padding: 12px; text-transform: capitalize; font-weight: 500; border-radius: 8px;}
+.mynavbar ul.navbar-nav a.nav-link:hover{color: #3f3e3e;}
 .mynavbar ul.navbar-nav a.nav-link.active {color: #000; font-weight: 600;}
 .mynavbar ul.navbar-nav a.nav-link.active:hover {color: #000;}
 .mynavbar .navbar-toggler {background: #251a14; padding: 4px 10px;}
