@@ -18,3 +18,5 @@
 .mynavbar .navbar-toggler {background: #251a14; padding: 4px 10px;}
 .mynavbar .navbar-toggler span {background-image: none; background-color: #fff; width: 25px; height: 2px; margin: 6px 0; display: block;}
 .mynavbar .navbar-brand {margin-right: 0;}
+
+footer {font-size: 14px;}

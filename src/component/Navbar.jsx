@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import logo from '../assets/images/logo.png'
 import headcalle from '../assets/images/head-caller.webp'
+import { Link } from 'react-router-dom'
 
 
 export class Navbar extends Component {
@@ -12,9 +13,9 @@ export class Navbar extends Component {
                     <div className="row">
                         <div className="col-md-12">
                             <nav className="navbar navbar-expand-lg navbar-light justify-content-between">
-                                <a className="navbar-brand" href="/">
+                                <Link className="navbar-brand" to="/">
                                     <img src={logo} alt="logo" decoding="async" width="20" height="5" />
-                                </a>
+                                </Link>
 
                                 <button className="navbar-toggler" type="button" aria-label="mobile nav" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                                     <span className="navbar-toggler-icon"></span>
@@ -25,37 +26,37 @@ export class Navbar extends Component {
                                 <div className="collapse navbar-collapse" id="collapsibleNavbar">
                                     <ul className="navbar-nav">
                                         <li className="nav-item">
-                                            <a className="nav-link active" href="/">Home</a>
+                                            <Link className="nav-link active" to="/">Home</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="/">About Us</a>
+                                            <Link className="nav-link" to="/about">About Us</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="/">Business</a>
+                                            <Link className="nav-link" to="/business">Business</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="/">Entertainment</a>
+                                            <Link className="nav-link" to="/entertainment">Entertainment</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="/">General</a>
+                                            <Link className="nav-link" to="/general">General</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="/">Health</a>
+                                            <Link className="nav-link" to="/health">Health</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="/">Science</a>
+                                            <Link className="nav-link" to="/science">Science</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="/">Sports</a>
+                                            <Link className="nav-link" to="/sports">Sports</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="/">Technology</a>
+                                            <Link className="nav-link" to="/technology">Technology</Link>
                                         </li>
                                     </ul>
                                 </div>
 
                                 <div className="head-tfn">
-                                    <a href="tel:+1-888-XXX-XXXX">
+                                    <a to="tel:+1-888-XXX-XXXX">
                                         <span className="call-icon">
                                             <img src={headcalle} alt="head-caller" width="5" height="5" loading="lazy" decoding="async" />
                                         </span>
