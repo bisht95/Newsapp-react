@@ -28,6 +28,10 @@ npm run dev
 ##### Generate ssh key for github access ######
 ### open gitbash cli ###
 cd   ## go to home directory
+
 cd .ssh   ## go to .ssh folder
+
 ssh-keygen ## run command to generate ssh pub key 
 ## copy .pub extention key and paste in github ##
+
+cat *.pub ## to show the content of .pub file
