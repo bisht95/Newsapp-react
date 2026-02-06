@@ -81,10 +81,13 @@ constructor(){
 
 
   render() {
+
+    let {newstitlename} = this.props
+
     return (
       <div>
            <div className='container mt-3'>
-                <h3 className='text-center mb-5'>Top News</h3>
+                <h3 className='text-center mb-5'>Top News {newstitlename}</h3>
                   {this.state.loading && <Spinner />}
                   <div className='row'>
                     {
@@ -97,6 +100,8 @@ constructor(){
                             description={element.description} 
                             imgUrl={element.urlToImage} 
                             newsUrl={element.url}
+                            DatePost={element.publishedAt}
+                            newssource={element.source.name}
                           />
                       </div>
                       })
