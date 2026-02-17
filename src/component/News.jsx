@@ -52,6 +52,13 @@ constructor(){
     let data = await fetch(apiurl);
     let parsedData = await data.json() 
     console.log(parsedData)
+
+    // If no more articles are returned, stop the scroll
+      if (!parsedData.articles || parsedData.articles.length === 0) {
+          this.setState({ totalResults: this.state.articles.length });
+          return;
+      }
+
     this.setState({
       page : this.state.page + 1,
       articles:  this.state.articles.concat(parsedData.articles),

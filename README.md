@@ -25,6 +25,11 @@ npm create vite@latest newsapp-react -- --template react
 
 npm run dev
 
+##### React-Infinite-Scroll Add Commond ######
+npm i react-infinite-scroll-component
+
+
+
 ##### Generate ssh key for github access ######
 ### open gitbash cli ###
 cd   ## go to home directory
@@ -35,3 +40,8 @@ ssh-keygen ## run command to generate ssh pub key
 ## copy .pub extention key and paste in github ##
 
 cat *.pub ## to show the content of .pub file
+
+
+##### Github Commond ######
+# how to roll back previous push from github
+# git reset --hard commit_ID
