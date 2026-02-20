@@ -18,8 +18,8 @@ static defaultProps = {
     category: PropTypes.string
   }
 
-constructor(){
-    super()
+constructor(props){
+    super(props)
     this.state = {
       articles : [],
       loading: true,
@@ -31,16 +31,20 @@ constructor(){
   }
 
  async newsUpdate() {
+   this.props.setProgress(30)
   let apiurl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pagesize}`
     this.setState({loading:true})
     let data = await fetch(apiurl);
+    this.props.setProgress(60)
     let parsedData = await data.json() 
+     this.props.setProgress(80)
     console.log(parsedData)
     this.setState({
       articles: parsedData.articles,
       totalResults:parsedData.totalResults,
       loading: false
     })
+    this.props.setProgress(100)
  }
 
   async componentDidMount(){
@@ -48,9 +52,12 @@ constructor(){
   }
 
   fetchMoreData = async () => {
+    this.props.setProgress(30)
     let apiurl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page + 1}&pageSize=${this.props.pagesize}`
     let data = await fetch(apiurl);
+     this.props.setProgress(60)
     let parsedData = await data.json() 
+     this.props.setProgress(80)
     console.log(parsedData)
 
     // If no more articles are returned, stop the scroll
@@ -64,6 +71,8 @@ constructor(){
       articles:  this.state.articles.concat(parsedData.articles),
       totalResults:parsedData.totalResults,
     })
+
+     this.props.setProgress(100)
   }
 
 
