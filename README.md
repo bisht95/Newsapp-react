@@ -28,6 +28,8 @@ npm run dev
 ##### React-Infinite-Scroll Add Commond ######
 npm i react-infinite-scroll-component
 
+##### React-Top-Loading-Bar Add Commond ######
+npm install --save react-top-loading-bar
 
 
 ##### Generate ssh key for github access ######

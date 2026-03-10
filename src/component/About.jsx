@@ -1,6 +1,16 @@
 import React, { Component } from 'react'
 
 export class About extends Component {
+  
+  componentDidMount() {
+    // loading animation
+    this.props.setProgress(30)
+
+    setTimeout(() => {
+      this.props.setProgress(100)
+    }, 300)
+  }
+
   render() {
     return (
       <div>
