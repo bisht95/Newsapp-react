@@ -1,20 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
 import logo from '../assets/images/logo.png'
 import headcalle from '../assets/images/head-caller.webp'
 import { Link } from 'react-router-dom'
 
+const Navbar = ()=> {
 
-export class Navbar extends Component {
-  render() {
     return (
-      <div>
+    
             <div className="mynavbar">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
                             <nav className="navbar navbar-expand-lg navbar-light justify-content-between">
                                 <Link className="navbar-brand" to="/">
-                                    <img src={logo} alt="logo" decoding="async" width="20" height="5" />
+                                    <img src={logo} alt="logo" decoding="async" width="60" height="49" />
                                 </Link>
 
                                 <button className="navbar-toggler" type="button" aria-label="mobile nav" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -56,9 +55,9 @@ export class Navbar extends Component {
                                 </div>
 
                                 <div className="head-tfn">
-                                    <a to="tel:+1-888-XXX-XXXX">
+                                    <a href="tel:+1-888-XXX-XXXX">
                                         <span className="call-icon">
-                                            <img src={headcalle} alt="head-caller" width="5" height="5" loading="lazy" decoding="async" />
+                                            <img src={headcalle} alt="head-caller" width="36" height="36" loading="lazy" decoding="async" />
                                         </span>
 
                                         <span className="callustext">
@@ -74,10 +73,8 @@ export class Navbar extends Component {
                 </div>
             </div>
              
-      
-        </div>
     )
-  }
 }
+
 
 export default Navbar

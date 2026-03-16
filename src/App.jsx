@@ -4,9 +4,11 @@ import './App.css';
 import About from './component/About';
 import Navbar from './component/Navbar';
 import News from './component/News';
+
 import Notfoundpage from './component/Notfoundpage';
 import Footer from './component/Footer'
 import LoadingBar from 'react-top-loading-bar';
+import Funcnews from './component/Funcnews';
 
 
 
@@ -32,6 +34,7 @@ function App() {
         <Route path="/sports" element={<News setProgress={setProgress} key="sports" pagesize={pagesize} apiKey={apiKey} country='us' category="sports" newstitlename="Sports" />} />
         <Route path="/technology" element={<News setProgress={setProgress} key="technology" pagesize={pagesize} apiKey={apiKey} country='us' category="technology" newstitlename="Technology" />} />
         <Route path='/about' element={<About setProgress={setProgress} />} />
+        <Route path='/funcnews' element={<Funcnews setProgress={setProgress} pagesize={pagesize} apiKey={apiKey} country='us' category="science" newstitlename="All News"/>} />
         <Route path='*' element={<Notfoundpage />} />
       </Routes>
 

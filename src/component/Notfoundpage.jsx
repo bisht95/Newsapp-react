@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class Notfoundpage extends Component {
-  render() {
+const Notfoundpage = () =>  {
     return (
       <div>
             
@@ -25,7 +24,6 @@ export class Notfoundpage extends Component {
 
       </div>
     )
-  }
 }
 
 export default Notfoundpage
