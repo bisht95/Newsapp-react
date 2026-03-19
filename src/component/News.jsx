@@ -10,6 +10,10 @@ const News = (props) =>  {
   const [loading, setLoading] = useState(true);
   const [page, setPage]= useState(1);
   const [totalResults, setTotalResults] = useState(0);
+  
+  const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    } 
 
 
 
@@ -61,7 +65,7 @@ const News = (props) =>  {
     return (
       <div>
            <div className='mt-3'>
-                <h3 className='text-center mb-5'>Top News</h3>
+                <h3 className='text-center mb-5'>Top News {capitalizeFirstLetter(props.category)}</h3>
                   {loading && <Spinner />}
                   
                    <InfiniteScroll
