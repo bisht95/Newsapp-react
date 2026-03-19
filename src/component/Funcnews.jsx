@@ -4,7 +4,7 @@ import Spinner from './Spinner'
 import PropTypes from 'prop-types'
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const News = (props) =>  {
+const Funcnews = (props) =>  {
 
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -101,16 +101,16 @@ const News = (props) =>  {
   
 }
 
-News.defaultProps = {
+Funcnews.defaultProps = {
     country: 'us',
     pagesize: 10,
     category: 'health'
   }
 
-News.propTypes = {
+Funcnews.propTypes = {
     country: PropTypes.string,
     pagesize: PropTypes.number,
     category: PropTypes.string
   }
 
-export default News
+export default Funcnews
