@@ -49,5 +49,3 @@ cat *.pub ## to show the content of .pub file
 # git reset --hard commit_ID
 # git switch branch name  -- change the branch
 #####
-
-Tesing
